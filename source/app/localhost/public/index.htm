@@ -1,0 +1,126 @@
+<!doctype html />
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="./css/style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<nav>
+			<title>Nano Framework over Python3</title>
+			<div class="block">
+				<div class="title">Serveur</div>
+				<div class="group">
+					<div class="title">Configuration</div>
+					<div class="entry">Protocol HTTP</div>
+					<div class="entry">Virtual hosting</div>
+				</div>
+			</div>
+			<div class="block">
+				<div class="title">Applicatif</div>
+				<div class="group">
+					<div class="title">Comportement</div>
+					<div class="entry">Mise en service</div>
+					<div class="entry">Vhost et initialisation</div>
+					<div class="entry">Mode developpement/production</div>
+				</div>
+				<div class="group">
+					<div class="title">Structuration</div>
+					<div class="entry">Configuration</div>
+					<div class="entry">Routage serveur</div>
+					<div class="entry">Controlleurs</div>
+					<div class="entry">Modèles</div>
+					<div class="entry">Vues</div>
+					<div class="entry">Cache</div>
+					<div class="entry">Langues</div>
+				</div>
+				<div class="group">
+					<div class="title">Erreurs et Logs</div>
+					<div class="entry">Erreurs</div>
+					<div class="entry">Logs</div>
+				</div>
+			</div>
+		</nav>
+		<section>
+			<h1>Nano Framework over Python3</h1>
+			<div class="content">
+				<p>
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.							
+				</p>
+			</div>
+				<h2>Serveur</h2>
+					<div class="content">
+						<p>
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.							
+						</p>
+					</div>
+					<h3>Configuration</h3>
+						<div class="content">
+							<p>
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.							
+							</p>
+						</div>
+						<h4>Protocol HTTP</h4>
+							<div class="content">
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.							
+								</p>
+								<code>
+									<d0><s>"http"</s>: {</d0>
+									<d1><s>"methods"</s>: [<s>"head"</s>, <s>"get"</s>, <s>"post"</s>, <s>"put"</s>, <s>"trace"</s>, <s>"options"</s>, <s>"trace"</s>, <s>"connect"</s>],</d1>
+									<d1><s>"versions"</s>      : [<s>"1.0"</s>, <s>"1.1"</s>, <s>"2.0"</s>],</d1>
+									<d1><s>"maxheaderSize"</s> : <i>4096</i>,</d1>
+									<d1><s>"maxRequestSize"</s>: <i>8388608</i>,</d1>
+									<d1><s>"codes"</s>         : { ... },</d1>
+									<d1><s>"mimeDefault"</s>   : <s>"application/octet-stream"</s>,</d1>
+									<d1><s>"mimes"</s>         : { ... },</d1>
+									<d1><s>"bandWidth"</s>     : {</d1>
+									<d2><s>"chunkSize"</s> 	   : <i>256000</i>,</d2>
+									<d2><s>"delay"</s>         : <i>500</i></d2>
+									<d1>}</d1>
+									<d0>},</d0>
+								</code>
+							</div>
+							<h4>Virtual hosting</h4>
+							<div class="content">
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.							
+								</p>
+								<code>
+									<d0><s>"vhosts"</s> : [</d0>
+									<d1>{</d1>
+									<d2><s>"port"</s>: <i>80</i>,</d2>
+									<d2><s>"ssl"</s>: <x>null</x>,</d2>
+									<d2><s>"hosts</s> : [<s>"localhost"</s>, <s>"*.localhost"</s>, <s>"localhost.com"</s>],</d2>
+									<d2><s>"directory"</s> : <s>"./app/localhost/"</s></d2>
+									<d1>},</d1>
+									<d1>{</d1>
+									<d2><s>"port"</s>: <i>443</i>,</d2>
+									<d2><s>"ssl"</s>: {</d2>
+									<d3><s>"cert"</s>: <s>"./ssl/cert.pem"</s>,</d3>
+									<d3><s>"private"</s>: <s>"./ssl/key.pem"</s></d3>
+									<d2>},</d2>
+									<d2><s>"hosts"</s>: [<s>"localhost"</s>, <s>"*.localhost"</s>, <s>"localhost.com"</s>],</d2>
+									<d2><s>"directory"</s> : <s>"./app/localhost/"</s></d2>
+									<d1>}</d1>
+									<d0>]</d0>
+								</code>
+							</div>
+						<h2>Applicatif</h2>
+					<h3>Comportement</h3>
+						<h4>Mise en service</h4>
+						<h4>Vhost et initialisation</h4>
+						<h4>Mode developpement/production</h4>
+					<h3>Structuration</h3>
+						<h4>Configuration</h4>
+						<h4>Routage serveur</h4>
+						<h4>Controlleurs</h4>
+						<h4>Modèles</h4>
+						<h4>Vues</h4>
+						<h4>Cache</h4>
+						<h4>Langues</h4>
+					<h3>Erreurs et Logs</h3>
+						<h4>Erreurs</h4>
+						<h4>Logs</h4>
+		</section>
+	</body>
+</html>

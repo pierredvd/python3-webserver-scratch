@@ -1,0 +1,19 @@
+{
+	"developperMode": false,
+	"routes": {
+		"__404__"		: "index/e404",
+		"/"				: "index/index",
+		"/test"			: "index/test",
+		"/test/([0-9]+)": "index/test",
+		"/users"		: "index/users"
+	},
+	"databases": {
+		"postgresql-test": {
+			"host"		: "localhost",
+			"database"	: "test",
+			"user"		: "app",
+			"password"	: "password",
+			"port"		: 5432
+		}
+	}
+}

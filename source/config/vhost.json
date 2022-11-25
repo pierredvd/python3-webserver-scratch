@@ -1,0 +1,17 @@
+[
+    {
+        "port"          : 80,
+        "ssl"           : null,
+        "hosts"         : ["localhost", "*.localhost", "localhost.com"],
+        "directory"     : "./app/localhost/"
+    },
+    {
+        "port"          : 443,
+        "ssl"           : {
+            "certfile"  : "./ssl/cert.pem",
+            "keyfile"   : "./ssl/key.pem"
+        },
+        "hosts"         : ["localhost", "*.localhost", "localhost.com"],
+        "directory"     : "./app/localhost/"
+    }        
+]

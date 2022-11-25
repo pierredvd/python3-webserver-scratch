@@ -1,0 +1,141 @@
+<!doctype html />
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <style>
+            body{
+                background-color : #c0c0c0;
+                padding: 0px;
+                margin: 0px;
+            }
+            form{
+                display: block;
+                width: 400px;
+                margin: 40px auto;
+                background-color: #f0f0f0;
+                padding: 20px;
+                box-sizing: border-box;
+                clear: both;
+                overflow: hidden;
+                border-radius: 3px;
+            }
+            form > .title{
+                display: block;
+                border-bottom: dotted 1px #88888888;
+                padding: 10px 15px;                
+                font-size: 14px;
+                font-family: Arial;
+                text-align: center;
+                margin-bottom: 8px;
+                font-weight: bold;
+
+            }
+            form > label{
+                display: block;
+                height: 30px;
+                width: 100%;
+                padding-left: 10px;
+                line-height: 30px;
+                font-size: 14px;
+                font-family: Arial;
+                box-sizing: border-box;
+            }
+            form > input[type=text]{
+                display: block;
+                height: 30px;
+                width: 100%;
+                line-height: 30px;
+                font-size: 12px;
+                font-family: Arial;
+                padding: 5px 10px;
+                box-sizing: border-box;
+                border: solid 1px #888888;
+                border-radius: 3px;
+            }
+            form > textarea{
+                display: block;
+                height: 90px;
+                width: 100%;
+                line-height: 20px;
+                font-size: 12px;
+                font-family: Arial;
+                padding: 5px 10px;
+                box-sizing: border-box;
+                border: solid 1px #888888;
+                border-radius: 3px;
+            }
+            form > input[type=submit]{
+                display: inline-block;
+                height: 30px;
+                width: 100px;
+                line-height: 30px;
+                float: right;
+                font-family: Arial;
+                font-size: 14px;
+                margin-top: 8px;
+                font-family: Arial;
+                padding: 0px 10px;
+                box-sizing: border-box;
+                text-align: center;
+                border: solid 1px #888888;
+                border-radius: 3px;
+            }
+        </style>
+	</head>
+	<body>
+        <form id="form">
+            <div class="title">Test websocket with Nano</div>
+            <label>Host</label>
+            <input id="host" type="text" value="ws://localhost:80" />
+            <label>Input</label>
+            <textarea id="input">This is a message</textarea>
+            <label>Output</label>
+            <textarea id="output" disabled></textarea>
+            <input id="send" type="submit" value="Send" />
+        </form>
+        <script type="text/javascript">
+            var dForm   = document.getElementById('form')
+            var dSend   = document.getElementById('send')
+            var dHost   = document.getElementById('host')
+            var dInput  = document.getElementById('input')
+            var dOutput = document.getElementById('output')
+            var current = {
+                host    : null,
+                socket  : null
+            }
+            dForm.addEventListener('submit', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                return false
+            })
+            dSend.addEventListener('click', (e) => {
+                ((callback) => {
+                    // Open websocket connexion and wait it ready if necessary
+                    var host = dHost.value
+                    if(host != current.host){
+                        current.host    = host
+                        current.socket  = new WebSocket(host)
+                        current.socket.addEventListener('open', (event) => {
+                            // On socket creation, bind message listener
+                            current.socket.addEventListener('message', (event) => {
+                                dOutput.value = event.data
+                            });                            
+                            callback()
+                        });                    
+                    } else {
+                        callback()
+                    }
+                })(() => {
+                    // Send data
+                    current.socket.send(dInput.value);
+                })
+                return false;
+            })
+
+        
+        </script>
+
+
+
+    </body>
+</html>

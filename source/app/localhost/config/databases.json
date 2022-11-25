@@ -1,0 +1,10 @@
+{
+    "postgresql-test": {
+        "driver"    : "psycopg2",
+        "host"		: "localhost",
+        "database"	: "test",
+        "user"		: "app",
+        "password"	: "password",
+        "port"		: 5432
+    }
+}

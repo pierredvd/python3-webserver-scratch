@@ -32,7 +32,7 @@ then
 		if [ $(stat /var/source/create.sql --format="%X") -gt $(stat /var/lib/postgresql/data/.gitkeep --format="%X") ] 
 		then
 			echo ""
-			echo "### Update data $(stat /var/lib/postgresql/data/.gitkeep --format="%X") to $(stat /var/www/create.sql --format="%X")"
+			echo "### Update data $(stat /var/lib/postgresql/data/.gitkeep --format="%X") to $(stat /var/source/create.sql --format="%X")"
 			psql -U "postgres" -h "localhost" -p 5433 -f /var/source/create.sql
 		else
 			echo ""
@@ -45,5 +45,10 @@ touch /var/lib/postgresql/data/.gitkeep
 # Start postgres bridger
 node /etc/postgres_bridger/bootstrap.js & echo "Start Postgresql Bridger"
 
+# Start Framework
+echo ""
 python3 --version
-/var/source/bootstrap.py
+pip --version
+echo ""
+
+python3 /var/source/__init__.py && /bin/bash

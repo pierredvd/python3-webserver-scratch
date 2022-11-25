@@ -192,6 +192,7 @@ RUN set -eux; \
 		zstd \
 	; \
 	rm -rf /var/lib/apt/lists/*
+RUN mkdir /docker-entrypoint-initdb.d
 RUN set -ex; \
 	key='B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8'; \
 	export GNUPGHOME="$(mktemp -d)"; \
@@ -202,7 +203,7 @@ RUN set -ex; \
 	rm -rf "$GNUPGHOME"
 ENV PG_MAJOR 11
 ENV PATH $PATH:/usr/lib/postgresql/$PG_MAJOR/bin
-ENV PG_VERSION 11.17-1.pgdg110+1
+ENV PG_VERSION 11.18-1.pgdg110+1
 RUN set -ex; \
 	\
 	export PYTHONDONTWRITEBYTECODE=1; \
@@ -238,7 +239,6 @@ RUN set -ex; \
 			_update_repo; \
 			apt-get build-dep -y "postgresql-$PG_MAJOR=$PG_VERSION"; \
 			apt-get source --compile "postgresql-$PG_MAJOR=$PG_VERSION"; \
-			\
 			\
 			apt-mark showmanual | xargs apt-mark auto > /dev/null; \
 			apt-mark manual $savedAptMark; \
@@ -277,8 +277,10 @@ ENV PGDATA /var/lib/postgresql/data
 RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 777 "$PGDATA"
 
 # POSTGRES CONFIG
+RUN 	rm -f /etc/postgresql/11/main/pg_hba.conf
 COPY 	./config/postgresql/pg_hba.conf /etc/postgresql/11/main/pg_hba.conf
 RUN  	chown postgres /etc/postgresql/11/main/pg_hba.conf && chgrp postgres /etc/postgresql/11/main/pg_hba.conf && chmod 0644 /etc/postgresql/11/main/pg_hba.conf
+RUN 	rm -f /etc/postgresql/11/main/postgresql.conf
 COPY 	./config/postgresql/postgresql.conf /etc/postgresql/11/main/postgresql.conf
 RUN  	chown postgres /etc/postgresql/11/main/postgresql.conf && chgrp postgres /etc/postgresql/11/main/postgresql.conf && chmod 0644 /etc/postgresql/11/main/postgresql.conf
 

@@ -1,4 +1,9 @@
-class TestIndex:
+
+#!/usr/bin/env python3
+
+from nano.app.test import Test
+
+class ControllerIndexTest(Test):
 
 	def __init__(self, Nano):
 		self.Nano = Nano

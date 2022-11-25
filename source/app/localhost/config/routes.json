@@ -1,0 +1,15 @@
+{
+	"http": {
+		"__404__"		: "index/e404",
+		"/"				: "index/index",
+		"/test"			: "index/test",
+		"/test/([0-9]+)": "index/test",
+		"/users"		: "index/users"		
+	},
+	"websocket": {
+		"__404__"		: "websocket/e404",
+		"/"				: "websocket/index",
+		"/test"			: "websocket/test",
+		"/test/([0-9]+)": "websocket/test"
+	}
+}

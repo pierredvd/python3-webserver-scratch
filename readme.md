@@ -4,6 +4,21 @@ Sur le principe cela semble effectivement envisageable, mais la facheuse tendanc
 Actulement en cours de développement, sans recherche véritable de produit fini.
 Configurée pour répondre sur le localhost en http et https, et laisse la possibilités de consulter le contenu de la base de données Postgresql avec un pgadmin sur le port 5432.
 
+[2022-11-25] Grosse réécriture du code, dispersion et mise au propre des packages, 
+- env: update dockerfile (postgres minor version), patch init.sh
+- server: prise en charge du protocol websocket 13
+- app: habillage des erreurs, corrections du developpeurMode qui ne forcait pas convenablement le rechargement des modules
+- app: les configurations sont rechargée live a chaque appel, (1 update par seconde max), avec verifications des mtimes des fichiers
+- app: prise en charge fichier de langues
+- app: logs (applicatifs seulement)
+- app: le comportement controller et model sont derenavent integré par heritable
+- perf: reduction de l'usage memoire et des propabilités de suites (sans grand succès)
+- todo: cache, tests autmatisés, doc, pre-queue les requetes par applicatif, penser a comment scalarisée la charge par applicatif
+
+P.S: Pour les amis de chromes et de https, le serveur est configuré par defaut avec un certificat autosignés, donc pour que chrome ne hurle pas pour un self-signed sur localhost:
+chrome://flags/#allow-insecure-localhost
+"Allow invalid certificates for resources loaded from localhost." > Enabled (voila voila !)
+
 ## _Environnement de developpement Python / Postgres11 / Node 10 / Portgres bridger sous docker_
 
 ## Contruire le contener

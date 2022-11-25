@@ -1,0 +1,36 @@
+[2022-11-24 05:11:05] TYPEERROR translate() takes 1 positional argument but 2 were given
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/error/__init__.py", line 42, in watch
+    callback()
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/instance/__init__.py", line 126, in runController
+    view = caller(sender, *args)                          # Call it with a sender
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/app/localhost/controller/websocket.py", line 11, in index
+    send(self.App.Lang.translate("websocket.helloworld"))
+
+[2022-11-24 05:11:32] TYPEERROR translate() takes 1 positional argument but 2 were given
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/error/__init__.py", line 42, in watch
+    callback()
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/instance/__init__.py", line 126, in runController
+    view = caller(sender, *args)                          # Call it with a sender
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/app/localhost/controller/websocket.py", line 11, in index
+    send(self.App.Lang.translate("websocket.helloworld"))
+
+[2022-11-24 05:11:15] ATTRIBUTEERROR 'Lang' object has no attribute 'data'
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/error/__init__.py", line 42, in watch
+    callback()
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/instance/__init__.py", line 126, in runController
+    view = caller(sender, *args)                          # Call it with a sender
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/app/localhost/controller/websocket.py", line 11, in index
+    send(self.App.Lang.translate("websocket.helloworld"))
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/lang/__init__.py", line 72, in translate
+    return self.data.get(self.lang+'.'+xpath, "<"+xpath+">")
+
+[2022-11-24 05:11:34] ATTRIBUTEERROR 'Lang' object has no attribute 'lang'
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/error/__init__.py", line 42, in watch
+    callback()
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/instance/__init__.py", line 126, in runController
+    view = caller(sender, *args)                          # Call it with a sender
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/app/localhost/controller/websocket.py", line 11, in index
+    send(self.App.Lang.translate("websocket.helloworld"))
+  File "/home/pdavid/Bureau/formation python 20221102/Nano/nano/app/lang/__init__.py", line 72, in translate
+    return self._data.get(self.lang+'.'+xpath, "<"+xpath+">")
+

@@ -1,3 +1,8 @@
 !**/.gitkeep
 **/__pycache__
 /persistant_data/*
+
+app/cache/*
+app/cache/*
+app/log/*
+app/upload/*
